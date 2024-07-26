@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include("./partials/head.ejs") %>
+</head>
+<body>
+  <%- include("./partials/navbar.ejs", { user: user }) %>
+
+  <div class="container mt-4">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="display-4"><%= blog.title %></h1>
+      <img id="blogImage" src="/<%=blog.coverImageUrl %>" class="img-fluid my-3" alt="<%= blog.title %>" onerror="this.onerror=null; this.src='/path/to/fallback/image.jpg';">
+      <div class="p-4 bg-light rounded">
+        <pre class="preformatted"><%= blog.body %></pre>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-8 offset-md-2 d-flex align-items-center">
+        <img src="<%=blog.createdBy.profileImageUrl %>" class="rounded-circle me-2" width="50px" alt="Author Profile"/>
+        <div>
+          <h5 class="m-0"><%= blog.createdBy.fullName %></h5>
+        </div>
+      </div>
+    </div>
+
+    <% if (locals.user) { %>
+    <div class="row mt-5">
+      <div class="col-md-8 offset-md-2">
+        <h2>Comments</h2>
+        <form action="/blog/comment/<%= blog.id %>" method="post" class="mb-4">
+          <div class="mb-3">
+            <textarea name="content" class="form-control" placeholder="Enter your comment" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Comment</button>
+        </form>
+      </div>
+    </div>
+    <% } %>
+
+    <div class="row mt-3">
+      <div class="col-md-8 offset-md-2">
+        <h2>Comments (<%= comments.length%>)</h2>
+        <% comments.forEach(comment => { %>
+        <div class="mb-3 p-3 border rounded">
+          <div class="d-flex align-items-center mb-2">
+            <img src="<%=blog.createdBy.profileImageUrl %>" class="rounded-circle me-2" width="40px" alt="Commenter Profile"/>
+            <h6 class="m-0"><%= comment.createdBy.fullName %></h6>
+          </div>
+          <pre class="bg-light p-2 rounded"><%= comment.content %></pre>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+
+ 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <script>
+    // Log the image URL to ensure it's correct
+    const imageUrl = '<%= blog.createdBy.profileImageUrl %>';
+    console.log('Image URL:', imageUrl);
+    
+    // Add a check to see if the image is being loaded correctly
+    document.getElementById('blogImage').addEventListener('load', function() {
+      console.log('Image loaded successfully.');
+    });
+
+    document.getElementById('blogImage').addEventListener('error', function() {
+      console.error('Error loading image. URL:', imageUrl);
+    });
+  </script>
+</body>
+</html>

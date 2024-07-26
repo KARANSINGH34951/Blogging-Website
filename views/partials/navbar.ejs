@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg  bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Get blogged</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <% if (user) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="blog/create">Add Blog</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/images/userImg.jpeg" alt="Profile" class="rounded-circle" style="width: 40px; height: 30px;">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-left">
+            <li><button class="dropdown-item"><%= user.email %></button></li>
+            <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a href="/user/signup" class="nav-link">Create Account</a>
+        </li>
+        <% } %>
+      </ul>
+      <div>
+        <img src="/images/Logo.jpeg" alt="Logo" class="img-fluid" style="height: 40px;">
+      </div>
+    </div>
+  </div>
+</nav>
+
+<% if (locals.error) { %>
+<div class="container">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>OPPS !</strong> <%= locals.error %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div>
+<% } %>
