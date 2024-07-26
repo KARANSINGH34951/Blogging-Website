@@ -53,24 +53,36 @@ To run this project locally, follow these steps:
 5. Open your browser and go to `http://localhost:3000`.
 
 ## Folder Structure
-.
+blogging-website/
 ├── models
-│ └── blog.js
+│   └── blog.js
+│   └── user.js
 ├── routes
-│ ├── blog.js
-│ └── user.js
+│   ├── blog.js
+│   └── user.js
 ├── public
-│ └── css
-│ └── styles.css
+│   ├── css
+│   │   └── styles.css
+│   ├── js
+│   │   └── scripts.js
+│   ├── images
+│       └── logo.png
 ├── views
-│ ├── home.ejs
-│ ├── blog.ejs
-│ ├── login.ejs
-│ └── signup.ejs
+│   ├── partials
+│   │   ├── header.ejs
+│   │   ├── footer.ejs
+│   │   └── navbar.ejs
+│   ├── home.ejs
+│   ├── blog.ejs
+│   ├── login.ejs
+│   └── signup.ejs
+├── middleware
+│   └── authentication.js
 ├── .env
 ├── .gitignore
 ├── app.js
 ├── package.json
+├── package-lock.json
 └── README.md
 
 markdown
