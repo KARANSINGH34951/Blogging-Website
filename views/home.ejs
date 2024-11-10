@@ -7,11 +7,11 @@
     #home {
       text-align: center;
       margin-top: 10%;
-      font-size: 3rem;
+      font-size: 5rem;
       color: #333;
     }
+
     .hero-section {
-      background-color: #f8f9fa;
       padding: 80px 0;
     }
     .hero-section h1 {
@@ -23,7 +23,7 @@
       color: #6c757d;
     }
     .info-section {
-      background-color: #e9ecef;
+      background-color: #FEFBEA;
       padding: 60px 0;
     }
     .info-section h2 {
@@ -88,7 +88,7 @@
   <%- include("./partials/navbar.ejs") %>
 
   <div class="container mt-5">
-    <%if(user){%>
+    <% if(user) { %>
       <h2>Welcome, <%= user.email %>!</h2>
       <div class="row">
         <% blogs.forEach(function(blog) { %>
@@ -106,85 +106,170 @@
       </div>
     <% } else { %>
 
-    <!-- Hero Section -->
-    <section class="hero-section text-center">
-      <div class="container">
-        <h1 id="home">Make Blogging Easy...</h1>
-        <p>Join our community of bloggers and share your stories with the world.</p>
-        <a href="/user/signup" class="btn btn-primary btn-lg">Get Started</a>
-      </div>
-    </section>
+      <!-- Hero Section -->
+      <section class="hero-section text-center py-5 my-5">
+        <div class="container">
+          <div style="height: 50vh;">
+            <h1 id="home">Make Blogging Easy...</h1>
+            <p class="lead" style="font-size: 2rem;">Join our community of bloggers and share your stories with the world.</p>
+            <a href="/user/signup" class="btn btn-primary btn-lg mb-4">Get Started</a>
+          </div>
+        </div>
+      </section>
 
-    <!-- Info Section -->
-    <section class="info-section text-center">
-      <div class="container">
-        <h2>What is Blogging?</h2>
-        <p>Blogging is a way to share your thoughts, ideas, and experiences with the world. Whether you’re passionate about a specific topic, want to offer advice, or simply love writing, a blog provides a platform to express yourself and connect with a wider audience.</p>
-        <p>With a blog, you can:</p>
-        <ul class="list-unstyled">
-          <li><strong>Share Knowledge:</strong> Provide valuable insights and information on subjects you’re knowledgeable about.</li>
-          <li><strong>Build Community:</strong> Engage with readers and build a community around shared interests.</li>
-          <li><strong>Express Creativity:</strong> Showcase your writing skills and creative ideas.</li>
-          <li><strong>Influence and Inspire:</strong> Reach and inspire others with your unique perspective.</li>
-        </ul>
-      </div>
-    </section>
+      <!-- Hero Section -->
+<section class="hero-section text-center py-5 my-5" style="height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+  <div class="container">
 
-    <!-- Testimonial Section -->
-    <section class="testimonial-section text-center">
-      <div class="container">
-        <h2>What Our Users Say</h2>
-        <div class="testimonial-container">
-          <div class="testimonial-cards">
-            <div class="card testimonial-card">
-              <img src="https://th.bing.com/th/id/OIP.6nte_HYnFMZdbTzpS_rgsAHaJQ?w=147&h=184&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="User 1">
-              <div class="card-body">
-                <h5 class="card-title">Jane Doe</h5>
-                <p class="card-text">"This platform has transformed the way I share my thoughts. It's intuitive and has a fantastic community!"</p>
-              </div>
-            </div>
-            <div class="card testimonial-card">
-              <img src="https://th.bing.com/th/id/OIP.Lm_jc0e50KVZV4tVYKXm6gHaE7?w=262&h=201&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="User 2">
-              <div class="card-body">
-                <h5 class="card-title">John Smith</h5>
-                <p class="card-text">"I love how easy it is to create and manage my blog. The features are just what I needed!"</p>
-              </div>
-            </div>
-            <div class="card testimonial-card">
-              <img src="https://images.pexels.com/photos/1553783/pexels-photo-1553783.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="User 3">
-              <div class="card-body">
-                <h5 class="card-title">Emily Johnson</h5>
-                <p class="card-text">"A wonderful platform for connecting with other bloggers. The design and functionality are top-notch!"</p>
-              </div>
-            </div>
-            <div class="card testimonial-card">
-              <img src="https://images.pexels.com/photos/572463/pexels-photo-572463.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="User 4">
-              <div class="card-body">
-                <h5 class="card-title">Michael Brown</h5>
-                <p class="card-text">"The ease of use and vibrant community make this an excellent choice for any blogger."</p>
-              </div>
-            </div>
-            <div class="card testimonial-card">
-              <img src="https://images.pexels.com/photos/325688/pexels-photo-325688.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="User 5">
-              <div class="card-body">
-                <h5 class="card-title">Sarah Lee</h5>
-                <p class="card-text">"A fantastic platform that has exceeded my expectations in every way!"</p>
-              </div>
-            </div>
-            <!-- Add more testimonial cards as needed -->
+    <!-- Cards Section -->
+    <div class="row justify-content-center">
+      <!-- Card 1 -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card shadow-sm h-100">
+          <img src="https://th.bing.com/th/id/OIP.syNGSbK4pjbINZCeXeuD7QHaHa?w=170&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" 
+               class="card-img-top img-fluid" alt="Easy Setup: Create your blog in minutes">
+          <div class="card-body">
+            <h5 class="card-title">Easy Setup</h5>
+            <p class="card-text">Create your blog in minutes with our user-friendly interface.</p>
           </div>
         </div>
       </div>
-    </section>
+
+      <!-- Card 2 -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card shadow-sm h-100">
+          <img src="https://th.bing.com/th/id/OIP.1raduQ3ExMo-g75wHYhCPQAAAA?w=277&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" 
+               class="card-img-top img-fluid" alt="Community Connection: Engage with other bloggers">
+          <div class="card-body">
+            <h5 class="card-title">Connect with Community</h5>
+            <p class="card-text">Engage with other bloggers, share insights, and grow your audience.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card shadow-sm h-100">
+          <img src="https://th.bing.com/th/id/OIP.gsQqeQzqlOX1kn5xObhYPQHaE8?w=247&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" 
+               class="card-img-top img-fluid" alt="Gain Exposure: Get featured on our platform">
+          <div class="card-body">
+            <h5 class="card-title">Gain Exposure</h5>
+            <p class="card-text">Get featured on our platform and gain visibility for your writing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <!-- Cards Section -->
+      <section class="info-section text-center py-5 bg-light">
+        <div class="container">
+          <h2 class="mb-4">What is Blogging?</h2>
+          <p class="lead mb-5">
+            Blogging is a way to share your thoughts, ideas, and experiences with the world. Whether you’re passionate about a specific topic, want to offer advice, or simply love writing, a blog provides a platform to express yourself and connect with a wider audience.
+          </p>
+          <p class="lead">With a blog, you can:</p>
+          <div class="row mt-4">
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <div class="icon mb-3">
+                    <i class="bi bi-lightbulb-fill" style="font-size: 2rem; color: #ffb74d;"></i>
+                  </div>
+                  <h5 class="card-title">Share Knowledge</h5>
+                  <p class="card-text">Provide valuable insights and information on subjects you’re knowledgeable about.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <div class="icon mb-3">
+                    <i class="bi bi-people-fill" style="font-size: 2rem; color: #64b5f6;"></i>
+                  </div>
+                  <h5 class="card-title">Build Community</h5>
+                  <p class="card-text">Engage with readers and build a community around shared interests.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <div class="icon mb-3">
+                    <i class="bi bi-palette-fill" style="font-size: 2rem; color: #9575cd;"></i>
+                  </div>
+                  <h5 class="card-title">Express Creativity</h5>
+                  <p class="card-text">Showcase your writing skills and creative ideas.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                  <div class="icon mb-3">
+                    <i class="bi bi-star-fill" style="font-size: 2rem; color: #ff8a65;"></i>
+                  </div>
+                  <h5 class="card-title">Influence & Inspire</h5>
+                  <p class="card-text">Reach and inspire others with your unique perspective.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonial Section -->
+      <section class="testimonial-section text-center">
+        <div class="container">
+          <h2>What Our Users Say</h2>
+          <div class="testimonial-container">
+            <div class="testimonial-cards">
+              <div class="card testimonial-card">
+                <img src="https://th.bing.com/th/id/OIP.6nte_HYnFMZdbTzpS_rgsAHaJQ?w=147&h=184&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="User 1">
+                <div class="card-body">
+                  <h5 class="card-title">Jane Doe</h5>
+                  <p class="card-text">"This platform has transformed the way I share my thoughts. It's intuitive and has a fantastic community!"</p>
+                </div>
+              </div>
+              <div class="card testimonial-card">
+                <img src="https://th.bing.com/th/id/OIP.Lm_jc0e50KVZV4tVYKXm6gHaE7?w=262&h=201&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="User 2">
+                <div class="card-body">
+                  <h5 class="card-title">John Smith</h5>
+                  <p class="card-text">"Blogging here is easy and fun! I’ve learned so much and made so many connections!"</p>
+                </div>
+              </div>
+              <div class="card testimonial-card">
+                <img src="https://th.bing.com/th/id/OIP.57Hz4yPDIPbYnWnKFYtwVgHaL4?w=197&h=316&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="User 2">
+                <div class="card-body">
+                  <h5 class="card-title">John Smith</h5>
+                  <p class="card-text">"Blogging here is easy and fun! I’ve learned so much and made so many connections!"</p>
+                </div>
+              </div>
+              <div class="card testimonial-card">
+                <img src="https://th.bing.com/th/id/OIP.4v_P5SS6FQgye4Y4kysO4gHaE8?w=202&h=135&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top rounded-circle mx-auto d-block mt-3" alt="User 2">
+                <div class="card-body">
+                  <h5 class="card-title">John Smith</h5>
+                  <p class="card-text">"Blogging here is easy and fun! I’ve learned so much and made so many connections!"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     <% } %>
+  </div>
 
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <p>&copy; 2024 Badal Jena Blog. All rights reserved.</p>
-    </div>
+    <p>&copy; 2024 Badal Jena Blog. All rights reserved.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
